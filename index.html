@@ -7,15 +7,59 @@
     <title>Password Generator</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
+  
   <body>
     <div class="wrapper">
       <header>
         <h1>Password Generator</h1>
       </header>
+      
+      <s="enterPass">
+        <div>
+          Please enter desired password length (between 8 to 256 characters).
+        </div> <br/>
+        
+      <ul>
+       
+        <li>  
+          <span>Numbers?</span>
+          <label class="checkbox">
+          <input id="numbers" type="checkbox" /> 
+          </label></li> <br>
+      
+       <li> 
+        <span>Lowercase characters?</span>
+        <label class="checkbox">
+          <input id="lowercase" type="checkbox" /> 
+          </label>
+          </li>  <br>
+
+       <li> 
+        <span>Uppercase characters?</span> 
+        <label class="checkbox">
+            <input id="uppercase" type="checkbox" /> 
+          </label>
+          </li> <br>
+
+      <li>  
+        <span>Special Characters?</span>
+        <label class="checkbox">
+        <input id="special-chars" type="checkbox" /> 
+      </label>
+    </li><br>
+              
+    </ul>
+      
+    <input type="text" id="pass-length" class="pw-text" maxlength="3"/><br/> <br/>
+      
+    <input type='button' value ="Submit" onclick='document.getElementById("pass-length").value=Password.generate(16)'>
+      </div>
+  </div>
+
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
-          
+
         </div>
         <div class="card-body">
           <textarea

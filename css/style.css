@@ -14,15 +14,26 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #C6F8F8;
 }
 
+.checkbox {
+  display: inline;
+  align-content: center;
+}
+
+.pw-text {
+  text-align: center;
+  margin-bottom: 50px;
+}
 
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
+
+
 
 header {
   text-align: center;
@@ -32,7 +43,7 @@ header {
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: #33EEFF(0, 0%, 100%);
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
