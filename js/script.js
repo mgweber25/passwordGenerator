@@ -8,7 +8,7 @@ var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var specialChar = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '-', '`', '{', '}', '|', '~'];
 
-var charInput = document.querySelector("#passLength");
+var charInput = document.querySelector("#pass-length");
 
 passChars = parseInt(charInput);
 
@@ -17,19 +17,30 @@ if(passChars < 8 || passChars > 256) {
   return;
 }
 
+if(
+  document.getElementById("box1").checked = false &&
+  document.getElementById("box2").checked = false &&
+  document.getElementById("box3").checked = false &&
+  document.getElementById("box4").checked = false && ) {
+
+    alert("You must select at least one attribute")
+
+    return;
+  };
+
+
 if(passChars > 7 && passChars < 257) {
 
-passGenerate = function(passChars) {
-/*
+  passGenerate = function(passChars) {
+
 for(i=0, i < passChars, i++) {
 
 
 };
-*/
-}
 
 }
 
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
