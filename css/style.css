@@ -36,6 +36,7 @@ form .checkboxes {
 .selectAtt label {
   display: block;
   text-align: center;
+  
 }
 
 .checkBoxes label {
@@ -43,6 +44,7 @@ form .checkboxes {
   text-align: center;
 
 }
+
 
 .checkBoxes input {
   display: inline-block;
