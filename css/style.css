@@ -20,11 +20,8 @@ body {
   margin: 0 auto;
 }
 
-.check-boxes {
-  text-align: center;
-}
 
-.checkbox {
+form .checkboxes {
   display: inline;
   align-content: center;
 }
@@ -36,15 +33,34 @@ body {
   padding-right: 20px;
 }
 
-.enterChar label{
+.selectAtt label {
   display: block;
   text-align: center;
-  float: center;
+}
+
+.checkBoxes label {
+  display: inline-block;
+  text-align: center;
+
+}
+
+.checkBoxes input {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  align-content: center;
+  margin: 0 auto;
+}
+
+
+ .enterChar label {
+  display: block;
+  text-align: center;
+  
 }
 
 .enterChar input {
   display: block;
-  text-align: center;
   align-content: center;
   margin: 20px auto;
 }
@@ -57,7 +73,8 @@ header {
 }
 
 ul {
-  margin-left: 40%;
+  display: inline-block;
+ margin-left: 40%;
   text-align: left;
 }
 

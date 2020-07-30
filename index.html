@@ -14,11 +14,15 @@
         <h1>Password Generator</h1>
       </header>
       
-      
-        <div class="check-boxes">
+      <div class="selectAtt">
+       <!-- <div class="check-boxes"> -->
+         <label>
           Please check which attributes you want included in your password:
-        </div> <br/>
-        
+        </label>
+      </div>
+         <br/>
+
+         <form class="checkBoxes">
       <ul>
        
         <li>  
@@ -49,14 +53,15 @@
     </li><br>
               
     </ul>
-      
-
-    <div class="enterChar">
-        
-      <label>Please enter desired password length (between 8 to 256 characters). </label>
-      <input type="text" id="pass-length" maxlength="3"/>
+    
+  </form>
+  
+  <div class="enterChar">
+      <label class="pw-length">Please enter desired password length (between 8 to 128 characters). </label>
+      <input type="text" class="pw-length" id="pass-length" maxlength="3"/>
 
     </div>
+
     <br/> <br/>
       
    <!-- <input type='button' value ="Submit" onclick='document.getElementById("pass-length").value=Password.generate(16)'>
@@ -80,7 +85,7 @@
         </div>
         <div class="card-footer">
 
-          <button id="generate" class="btn">Generate Password</button>
+          <button id="generate" class="btn" >Generate Password</button>
         </div>
       </div>
     </div>
