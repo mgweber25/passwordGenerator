@@ -64,7 +64,6 @@ if(passChars > 7 && passChars < 129) {
 //for(i=0, i < passChars, i++) {
 
 //};
-
 }
 
 }
