@@ -67,6 +67,7 @@ if(passChars > 7 && passChars < 129) {
 
 }
 
+
 }
 
 // Get references to the #generate element
