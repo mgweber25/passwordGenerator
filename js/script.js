@@ -14,20 +14,41 @@ var length = document.querySelector("#pass-length");
 
 // Generate Password Function
 
-function generatePassword () {
+function passwordAttributes () {
 
+    var box1 = document.querySelector('input[id="box1"]');
+    var box2 = document.querySelector('input[id="box2"]');
+    var box3 = document.querySelector('input[id="box3"]');
+    var box4 = document.querySelector('input[id="box4"]');
 
-      var numberCheck = document.getElementsByTagName("box1")[0].setAttribute(Boolean, "checkbox");
-      //box1
+  
+  // Box 1
+    if(box1.checked === true) {
+      var numberCheck = true}
+      else {
+        numberCheck = false
+      }
 
-      var lowerCaseCheck = document.getElementsByTagName("box2")[1].setAttribute(Boolean, "checkbox");
-      //box2.setAttribute("type", "checkbox");
+      //box2
+      if(box2.checked === true) {
+        var lowerCaseCheck = true}
+        else {
+          lowerCaseCheck = false
+        }
 
-      var upperCaseCheck = document.getElementsByTagName("box3")[2].setAttribute(Boolean, "checkbox");
-      //box3.setAttribute("type", "checkbox");
+        // Box 3
+        if(box3.checked === true) {
+          var upperCaseCheck = true}
+          else {
+            upperCaseCheck = false
+          }
 
-      var specialCharCheck = document.getElementsByTagName("box4")[3].setAttribute(Boolean, "checkbox");
-      //box4.setAttribute("type", "checkbox");
+      //Box 4
+      if(box4.checked === true) {
+        var specialCharCheck = true}
+        else {
+          specialCharCheck = false
+        }
 
       if (numberCheck === false && 
         lowerCaseCheck === false && 
@@ -38,22 +59,23 @@ function generatePassword () {
         return;
       }
 
-
-
-        var charInput = parseInt(document.querySelector("#pass-length"));
-
-
-          
         
+
+      var charInput = length;
+
+      console.log(charInput, length);
+
+      charInput = parseInt(charInput);
+
         if(charInput < 8 || charInput > 128) {
-          alert("Please re-enter a number between 8 and 256 for the password length");
+          alert("Please re-enter a number between 8 and 128 for the password length");
+          return;
         }
         else if(isNaN(charInput) === true) {
-
             alert("Length of password must be entered as a number only");
+            return;
           }
           
-        
       // Object to store user input
 
       var passwordOptions = {
@@ -66,6 +88,80 @@ function generatePassword () {
 
       return passwordOptions;
 }
+
+
+function generatePassword() {
+
+  var options = passwordAttributes();
+  // Variable to store password as it's being concatenated
+  var result = [];
+
+  // Array to store types of characters to include in password
+  var possibleCharacters = [];
+
+  // Array to contain one of each type of chosen character to ensure each will be used
+  var guaranteedCharacters = [];
+
+  // Conditional statement that adds array of numeric characters into array of possible characters based on user input
+  // Push new random special character to guaranteedCharacters
+  
+  if (options.numberCheck) {
+    possibleCharacters = possibleCharacters.concat(numeric);
+    guaranteedCharacters.push(getRandom(numeric));
+  }
+  
+  
+  
+  
+  
+  // Conditional statement that adds array of special characters into array of possible characters based on user input
+  // Push new random special character to guaranteedCharacters
+  
+  
+  
+  
+  
+  
+  
+  if (options.specialCharCheck) {
+    possibleCharacters = possibleCharacters.concat(specialChar);
+    guaranteedCharacters.push(getRandom(specialChar));
+  }
+
+  
+
+  // Conditional statement that adds array of lowercase characters into array of possible characters based on user input
+  // Push new random lower-cased character to guaranteedCharacters
+  if (options.lowerCaseCheck) {
+    possibleCharacters = possibleCharacters.concat(lowerCase);
+    guaranteedCharacters.push(getRandom(lowerCase));
+  }
+
+  // Conditional statement that adds array of uppercase characters into array of possible characters based on user input
+  // Push new random upper-cased character to guaranteedCharacters
+  
+  if (options.upperCaseCheck) {
+    possibleCharacters = possibleCharacters.concat(upperCase);
+    guaranteedCharacters.push(getRandom(upperCase));
+  }
+
+  // For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
+  
+  for (var i = 0; i < options.length; i++) {
+    var possibleCharacter = getRandom(possibleCharacters);
+
+    result.push(possibleCharacter);
+  }
+
+  // Mix in at least one of each guaranteed character in the result
+  for (var i = 0; i < guaranteedCharacters.length; i++) {
+    result[i] = guaranteedCharacters[i];
+  }
+
+  // Transform the result into a string and pass into writePassword
+  return result.join('');
+}
+
 
 
 // Get references to the #generate element
@@ -81,30 +177,5 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-createPassword.addEventListener('click', writePassword());
-
-
-
-
-
-
-
-
-
-  /*  alert("You must select at least one attribute") */
-
-
-
-
-
-if(passChars > 7 && passChars < 129) {
-
-  passGenerate = function(passChars) {
-
-//for(i=0, i < passChars, i++) {
-
-//};
-}
-
-}
+createPassword.addEventListener('click', writePassword);
 
