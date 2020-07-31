@@ -54,8 +54,6 @@ function generatePassword () {
           }
           
         
-
-
       // Object to store user input
 
       var passwordOptions = {
