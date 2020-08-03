@@ -23,14 +23,11 @@ function getCheckboxValues() {
   return values;
 };
 
-
 // Generate Password Function
-
 
 function getPasswordOptions() {
   
        getCheckboxValues();
-
     
   // Box 1
     if(box1.checked === true) {
@@ -70,8 +67,6 @@ function getPasswordOptions() {
       }
 
       var charInput = parseInt(document.getElementById("pass-length").value);
-
-      // charInput = parseInt(charInput);
        
        console.log(charInput);
      
@@ -88,9 +83,7 @@ function getPasswordOptions() {
              alert("Please re-enter a number equal to or less than 128 for the password length");
              return;
            };
-     
-         
-          
+              
       // Object to store user input
 
       var passwordOptions = {
@@ -111,7 +104,6 @@ function getRandom(arr) {
   return randElement;
 }
 
-
 function generatePassword() {
 
   var options = getPasswordOptions();
@@ -124,45 +116,35 @@ function generatePassword() {
   // Array to contain one of each type of chosen character to ensure each will be used
   var guaranteedCharacters = [];
 
-  // Conditional statement that adds array of numeric characters into array of possible characters based on user input
-  // Push new random special character to guaranteedCharacters
   
+   // Add special characters into array of possible characters based on user input
+  // Push new random special character to guaranteedCharacters
   if (options.specialCharCheck) {
     possibleCharacters = possibleCharacters.concat(specialChar);
     guaranteedCharacters.push(getRandom(specialChar));
   }
 
-  
+  // Add numeric characters into array of possible characters based on user input
+  // Push new random special character to guaranteedCharacters
   if (options.numberCheck) {
     possibleCharacters = possibleCharacters.concat(numeric);
     guaranteedCharacters.push(getRandom(numeric));
   }
   
+  // Add lowercase characters into array of possible characters based on user input
+  // Push new random lower-cased character to guaranteedCharacters
   if (options.lowerCaseCheck) {
     possibleCharacters = possibleCharacters.concat(lowerCase);
     guaranteedCharacters.push(getRandom(lowerCase));
   }
 
+ // Add uppercase characters into array of possible characters based on user input
+  // Push new random upper-cased character to guaranteedCharacters
   if (options.upperCaseCheck) {
     possibleCharacters = possibleCharacters.concat(upperCase);
     guaranteedCharacters.push(getRandom(upperCase));
   }
 
-  
-  // Conditional statement that adds array of special characters into array of possible characters based on user input
-  // Push new random special character to guaranteedCharacters
-    
-  
- 
-  
-
-  // Conditional statement that adds array of lowercase characters into array of possible characters based on user input
-  // Push new random lower-cased character to guaranteedCharacters
-  
-
-  // Conditional statement that adds array of uppercase characters into array of possible characters based on user input
-  // Push new random upper-cased character to guaranteedCharacters
-  
   
   // For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
   
@@ -180,7 +162,6 @@ function generatePassword() {
   // Transform the result into a string and pass into writePassword
   return result.join('');
 }
-
 
 
 // Get references to the #generate element
