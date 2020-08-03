@@ -52,15 +52,14 @@ form .checkboxes {
 }
 
 
- .enterChar label {
+ .enterChars label {
   display: block;
-  text-align: center;
-  
+  text-align: center; 
 }
 
-.enterChar input {
+.enterChars input {
   display: block;
-  align-content: center;
+  text-align: center;
   margin: 20px auto;
 }
 

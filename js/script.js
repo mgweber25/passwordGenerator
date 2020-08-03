@@ -1,52 +1,62 @@
 // Character arrays & Password Length
 
-var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w', 'x','y','z'];
 
-var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 var specialChar = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '-', '`', '{', '}', '|', '~'];
 
-var length = document.querySelector("#pass-length");
 
+function getCheckboxValues() {
+
+  const checkboxes = document.querySelectorAll('input[name="checkBoxes"]:checked');
+  let values = [];
+
+  checkboxes.forEach((checkbox) => {
+      values.push(checkbox.value);
+  });
+
+  console.log(values);
+
+  return values;
+};
 
 
 // Generate Password Function
 
-function passwordAttributes () {
 
-    var box1 = document.querySelector('input[id="box1"]');
-    var box2 = document.querySelector('input[id="box2"]');
-    var box3 = document.querySelector('input[id="box3"]');
-    var box4 = document.querySelector('input[id="box4"]');
-
+function getPasswordOptions() {
   
+       getCheckboxValues();
+
+    
   // Box 1
     if(box1.checked === true) {
       var numberCheck = true}
-      else {
+      else if(box1.checked != true) {
         numberCheck = false
       }
 
       //box2
       if(box2.checked === true) {
         var lowerCaseCheck = true}
-        else {
+        else if(box2.checked != true) {
           lowerCaseCheck = false
         }
 
         // Box 3
         if(box3.checked === true) {
           var upperCaseCheck = true}
-          else {
+          else if(box3.checked != true) {
             upperCaseCheck = false
           }
 
       //Box 4
       if(box4.checked === true) {
         var specialCharCheck = true}
-        else {
+        else if(box4.checked != true) {
           specialCharCheck = false
         }
 
@@ -59,22 +69,27 @@ function passwordAttributes () {
         return;
       }
 
-        
+      var charInput = parseInt(document.getElementById("pass-length").value);
 
-      var charInput = length;
-
-      console.log(charInput, length);
-
-      charInput = parseInt(charInput);
-
-        if(charInput < 8 || charInput > 128) {
-          alert("Please re-enter a number between 8 and 128 for the password length");
-          return;
-        }
-        else if(isNaN(charInput) === true) {
-            alert("Length of password must be entered as a number only");
-            return;
-          }
+      // charInput = parseInt(charInput);
+       
+       console.log(charInput);
+     
+         if(charInput < 8) {
+           alert("Please re-enter a number equal to or greater than 8 for the password length");
+           return;
+         }
+         else if(isNaN(charInput) === true) {
+             alert("Length of password must be entered as a number only");
+             return;
+           };
+     
+           if(charInput > 128) {
+             alert("Please re-enter a number equal to or less than 128 for the password length");
+             return;
+           };
+     
+         
           
       // Object to store user input
 
@@ -89,10 +104,17 @@ function passwordAttributes () {
       return passwordOptions;
 }
 
+function getRandom(arr) {
+  var randIndex = Math.floor(Math.random() * arr.length);
+  var randElement = arr[randIndex];
+
+  return randElement;
+}
+
 
 function generatePassword() {
 
-  var options = passwordAttributes();
+  var options = getPasswordOptions();
   // Variable to store password as it's being concatenated
   var result = [];
 
@@ -105,49 +127,46 @@ function generatePassword() {
   // Conditional statement that adds array of numeric characters into array of possible characters based on user input
   // Push new random special character to guaranteedCharacters
   
-  if (options.numberCheck) {
-    possibleCharacters = possibleCharacters.concat(numeric);
-    guaranteedCharacters.push(getRandom(numeric));
-  }
-  
-  
-  
-  
-  
-  // Conditional statement that adds array of special characters into array of possible characters based on user input
-  // Push new random special character to guaranteedCharacters
-  
-  
-  
-  
-  
-  
-  
   if (options.specialCharCheck) {
     possibleCharacters = possibleCharacters.concat(specialChar);
     guaranteedCharacters.push(getRandom(specialChar));
   }
 
   
-
-  // Conditional statement that adds array of lowercase characters into array of possible characters based on user input
-  // Push new random lower-cased character to guaranteedCharacters
+  if (options.numberCheck) {
+    possibleCharacters = possibleCharacters.concat(numeric);
+    guaranteedCharacters.push(getRandom(numeric));
+  }
+  
   if (options.lowerCaseCheck) {
     possibleCharacters = possibleCharacters.concat(lowerCase);
     guaranteedCharacters.push(getRandom(lowerCase));
   }
 
-  // Conditional statement that adds array of uppercase characters into array of possible characters based on user input
-  // Push new random upper-cased character to guaranteedCharacters
-  
   if (options.upperCaseCheck) {
     possibleCharacters = possibleCharacters.concat(upperCase);
     guaranteedCharacters.push(getRandom(upperCase));
   }
 
+  
+  // Conditional statement that adds array of special characters into array of possible characters based on user input
+  // Push new random special character to guaranteedCharacters
+    
+  
+ 
+  
+
+  // Conditional statement that adds array of lowercase characters into array of possible characters based on user input
+  // Push new random lower-cased character to guaranteedCharacters
+  
+
+  // Conditional statement that adds array of uppercase characters into array of possible characters based on user input
+  // Push new random upper-cased character to guaranteedCharacters
+  
+  
   // For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
   
-  for (var i = 0; i < options.length; i++) {
+  for (var i = 0; i < options.charInput; i++) {
     var possibleCharacter = getRandom(possibleCharacters);
 
     result.push(possibleCharacter);
@@ -165,7 +184,7 @@ function generatePassword() {
 
 
 // Get references to the #generate element
-var createPassword = document.querySelector("#passwordButton");
+var createPassword = document.querySelector("#generate");
 
 
 // Write password to the #password input
