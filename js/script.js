@@ -18,7 +18,7 @@ function getCheckboxValues() {
       values.push(checkbox.value);
   });
 
-//  console.log(values);
+  console.log(values);
 
   return values;
 };
@@ -68,7 +68,7 @@ function getPasswordOptions() {
 
       var charInput = parseInt(document.getElementById("pass-length").value);
        
-    //   console.log(charInput);
+      console.log(charInput);
      
          if(charInput < 8) {
            alert("Please re-enter a number equal to or greater than 8 for the password length");
