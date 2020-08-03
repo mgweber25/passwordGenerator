@@ -18,7 +18,7 @@ function getCheckboxValues() {
       values.push(checkbox.value);
   });
 
-  console.log(values);
+//  console.log(values);
 
   return values;
 };
@@ -68,7 +68,7 @@ function getPasswordOptions() {
 
       var charInput = parseInt(document.getElementById("pass-length").value);
        
-       console.log(charInput);
+    //   console.log(charInput);
      
          if(charInput < 8) {
            alert("Please re-enter a number equal to or greater than 8 for the password length");
@@ -110,10 +110,10 @@ function generatePassword() {
   // Variable to store password as it's being concatenated
   var result = [];
 
-  // Array to store types of characters to include in password
+  // characters to include in password
   var possibleCharacters = [];
 
-  // Array to contain one of each type of chosen character to ensure each will be used
+  // Array to ensure each will be used
   var guaranteedCharacters = [];
 
   
@@ -145,12 +145,9 @@ function generatePassword() {
     guaranteedCharacters.push(getRandom(upperCase));
   }
 
-  
   // For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
-  
   for (var i = 0; i < options.charInput; i++) {
     var possibleCharacter = getRandom(possibleCharacters);
-
     result.push(possibleCharacter);
   }
 
@@ -163,10 +160,8 @@ function generatePassword() {
   return result.join('');
 }
 
-
 // Get references to the #generate element
 var createPassword = document.querySelector("#generate");
-
 
 // Write password to the #password input
 function writePassword() {
